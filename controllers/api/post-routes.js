@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const authorize = require('../../utils/authorize');
 const { Vehicle, Post } = require('../../models');
 
 router.post('/:id', authorize, async (req, res) => {
