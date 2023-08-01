@@ -6,6 +6,10 @@ User.hasMany(Vehicle, {
     foreignKey: 'userId',
 });
 
+Vehicle.belongsTo(User, {
+    foreignKey: 'userId'
+});
+
 Vehicle.hasMany(Post, {
     foreignKey: 'vehicleId'
 });

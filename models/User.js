@@ -32,13 +32,6 @@ User.init(
         isEmail: true,
       },
     },
-    vehicles: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'vehicle',
-            key: 'id'
-        }
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
