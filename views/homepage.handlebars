@@ -1,0 +1,13 @@
+{{#each user}}
+<a href="/post/{{id}}" class="post-card-link">
+  <article class="post-card">
+      <h5>{{user.vehicle.nickname}}</h5>
+      <ul>
+        <li>{{user.vehicle.manufacturer}}</li>
+        <li>{{user.vehicle.modelName}}</li>
+        <li>{{user.vehicle.year}}</li>
+        <li>{{user.vehicle.color}}</li>
+      </ul>
+  </article>
+</a>
+{{/each}}
