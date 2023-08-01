@@ -34,7 +34,6 @@ User.init(
     },
     vehicles: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
             model: 'vehicle',
             key: 'id'
