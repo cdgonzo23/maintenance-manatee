@@ -10,7 +10,7 @@ router.post('/add-vehicle', authorize, async (req, res) => {
             year: req.body.year,
             color: req.body.color,
             nickname: req.body.nickname,
-            userId: res.session.userId
+            userId: req.session.userId
         });
         res.status(200).json(newVehicleData)
     } catch (err) {
