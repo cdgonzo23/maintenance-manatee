@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Manatee</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Maintenance Manatee</h1>
+        <nav>
+            <a href="/" class="button">Home</a>
+            {{#if loggedIn}}
+            <a href="/" class="button">Register New Vehicle</a>
+            <button id="logout" class="button">Logout</button>
+            {{else}}
+            <a href="/login" class="button">Login</a>
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        <div>
+            {{{body}}}
+        </div>
+    </main>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
