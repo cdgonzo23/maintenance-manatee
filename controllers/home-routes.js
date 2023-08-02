@@ -55,6 +55,26 @@ router.get('/vehicle/:id', authorize, async (req, res) => {
   }
 })
 
+router.get("vehicle/add", authorize, async (req, res) => {
+  try {
+    res.render("add-vehicle")
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+});
+
+router.get("vehicle/edit/:id", authorize, async (req, res) => {
+  try {
+    const vehicleData = await Vehicle.findByPk(req.params.id);
+    const vehicle = vehicleData.get({ plain: true })
+    res.render("add-vehicle")
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+});
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
