@@ -579,9 +579,6 @@ video {
 .h-10 {
   height: 2.5rem;
 }
-.h-5\/6 {
-  height: 83.333333%;
-}
 .h-96 {
   height: 24rem;
 }
@@ -686,15 +683,6 @@ video {
 }
 .p-6 {
   padding: 1.5rem;
-}
-.p-4 {
-  padding: 1rem;
-}
-.p-8 {
-  padding: 2rem;
-}
-.p-9 {
-  padding: 2.25rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -969,20 +957,12 @@ video {
     margin-right: auto;
   }
 
-  .sm\:ml-10 {
-    margin-left: 2.5rem;
-  }
-
   .sm\:flex {
     display: flex;
   }
 
   .sm\:w-3\/4 {
     width: 75%;
-  }
-
-  .sm\:w-3\/5 {
-    width: 60%;
   }
 
   .sm\:w-full {
