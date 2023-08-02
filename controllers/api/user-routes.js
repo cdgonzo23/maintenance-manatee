@@ -33,21 +33,30 @@ router.post('/login', async (req, res) => {
         const correctPassword = await userData.checkPassword(req.body.password);
 
         if (!correctPassword) res.status(400).json({ message: 'Incorrect email or password.'});
-
-        res.status(200).json({ message: 'Successfully logged in!'});
+        req.session.save(() => {
+            req.session.username = userData.username;
+            req.session.userId = userData.id;
+            req.session.loggedIn = true;
+            res.status(200).json({ message: 'Successfully logged in!'});
+        })
     } catch (err) {
         res.status(500).json(err);
     };
 });
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
+    try {
+        if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            console.log('destroyed session');
         res.status(204).end();
       });
     } else {
       res.status(404).end();
+    }} catch (err) {
+        res.status(500).json(err);
     }
+    
   });
 
 module.exports = router;
