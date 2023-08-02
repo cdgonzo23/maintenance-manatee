@@ -3,8 +3,17 @@ const { User, Vehicle, Post } = require('../models');
 const authorize = require('../utils/authorize');
 
 router.get('/', async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/dashboard');
+    return;
+  }
+
+  res.render('get-started');
+});
+
+router.get('/homepage', authorize, async (req, res) => {
   try {
-    const userData = await User.findOne({
+       const userData = await User.findOne({
       where: {
         id: req.session.userId
       },
@@ -15,12 +24,14 @@ router.get('/', async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
-    if (!user) res.status(404).json({message: 'No user found.'});
+    if(!userData) res.json({message: 'no user data'});
+
     res.render('homepage', { user, loggedIn: req.session.loggedIn })
-    } catch (err) {
+   
+  } catch (err) {
         res.status(500).json(err);
     };
-})
+});
 
 router.get('/vehicle/:id', authorize, async (req, res) => {
   try {
