@@ -3,22 +3,20 @@ const { User, Vehicle, Post } = require('../models');
 const authorize = require('../utils/authorize');
 
 router.get('/', async (req, res) => {
-  return res.render("homepage"); // TODO: remove this soon
-  
-    try {
-        const userData = await User.findOne({
-           where: {
-            id: req.session.userId
-           },
-           include: [
-            {
-            model: Vehicle
-           } 
-        ],
-        });
-        const user = userData.get({ plain: true });
-        if (!user) res.status(404).json({message: 'No user found.'});
-        res.render('homepage', { user })
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.session.userId
+      },
+      include: [
+        {
+          model: Vehicle
+        } 
+      ],
+    });
+    const user = userData.get({ plain: true });
+    if (!user) res.status(404).json({message: 'No user found.'});
+    res.render('homepage', { user, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err);
     };
@@ -54,5 +52,14 @@ router.get('/login', (req, res) => {
   
     res.render('login');
   });
+
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
+})
 
 module.exports = router;
