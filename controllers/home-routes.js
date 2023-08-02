@@ -3,6 +3,8 @@ const { User, Vehicle, Post } = require('../models');
 const authorize = require('../utils/authorize');
 
 router.get('/', async (req, res) => {
+  return res.render("homepage"); // TODO: remove this soon
+  
     try {
         const userData = await User.findOne({
            where: {
