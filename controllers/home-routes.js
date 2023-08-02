@@ -4,7 +4,7 @@ const authorize = require('../utils/authorize');
 
 router.get('/', async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect('/homepage');
     return;
   }
 
