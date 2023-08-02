@@ -1,0 +1,20 @@
+<h3 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center py-10">
+      Maintenance Log<br />
+      Chevy Silverado
+    </h3>
+    <div class="flex flex-col items-center">
+    {{#each vehcile.post}}
+      <a href="/vehicle/{{id}}" class="block p-6 rounded-lg shadow-lg bg-white max-w-md ml-6 mb-10 hover:scale-105 ease-in-out duration-500 text-md">
+        <div class="flex justify-between mb-4">
+          <p class="font-medium text-indigo-600">{{title}}</p>
+          <p class="font-medium text-indigo-600 hover:text-indigo-700 focus:text-indigo-800 duration-300 transition ease-in-out text-sm">
+            {{dateOfMaintenance}}
+          </p>
+        </div>
+        <p class="text-gray-700 mb-6">
+          {{content}}
+        </p>
+        <p class="font-medium text-indigo-600 hover:text-indigo-700 focus:text-indigo-800 duration-300 transition ease-in-out text-sm">Cost: {{cost}}</p>
+      </a>
+      {{/each}}
+    </div>

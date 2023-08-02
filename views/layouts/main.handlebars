@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maintenance Manatee</title>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
 
-<body>
-    <header>
-        <h1>Maintenance Manatee</h1>
-        <nav>
-            <a href="/" class="button">Home</a>
-            {{#if loggedIn}}
-            <a href="/" class="button">Register New Vehicle</a>
-            <button id="logout" class="button">Logout</button>
-            {{else}}
-            <a href="/login" class="button">Login</a>
-            {{/if}}
-        </nav>
-    </header>
-    <main>
-        <div>
-            {{{body}}}
+  <body class="bg-indigo-50">
+    <header class="bg-white">
+      <!-- navbar and menu -->
+      <nav class="shadow">
+        <div class="flex justify-between items-center py-6 px-10 container mx-auto">
+          <div>
+            <a href="/">
+              <h1 class="text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer">
+                Maintenance Manatee
+              </h1>
+            </a>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <ul class="sm:flex space-x-4 hidden items-center">
+                <li><a href="/" class="text-gray-700 hover:text-indigo-600 text-md">Home</a></li>
+                <li><a href="/" class="text-gray-700 hover:text-indigo-600 text-md">New Vehicle</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md">Upcoming Maintenance</a></li>
+              </ul>
+
+              <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
+                {{#if loggedIn}}
+                <button id="logout" class="text-text-gray-600 py-2 hover:cursor-pointer hover:text-indigo-600">LOGOUT</button>
+                {{else}}
+                <a href="/login" class="text-text-gray-600 py-2 hover:cursor-pointer hover:text-indigo-600">LOGIN</a>
+                <a
+                  href="/login"
+                  class="text-text-gray-600 py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-indigo-600 to-green-600 hover:shadow-lg"
+                >
+                  SIGNUP
+                </a>
+                {{/if}}
+              </div>
+            </div>
+          </div>
         </div>
-    </main>
+      </nav>
+    </header>
+      {{{body}}}
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
-</body>
-
+  </body>
 </html>
