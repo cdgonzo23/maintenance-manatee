@@ -32,12 +32,20 @@
           class="w-full rounded-md border border-indigo-500 bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md"
         />
       </div>
+      <div style="display: none">
+        <input id="postId" value="{{post.id}}">
+      </div>
       <div>
-        <button type="submit" class="hover:shadow-form rounded-md bg-indigo-500 py-3 px-8 text-base font-semibold text-white outline-none w-full">
+        <button id="edit-post-btn" type="submit" class="hover:shadow-form rounded-md bg-indigo-500 py-3 px-8 text-base font-semibold text-white outline-none w-full">
           EDIT POST
         </button>
       </div>
     </form>
+    <div style="margin-top: 10px;">
+        <button id="delete-post-btn" type="submit" class="hover:shadow-form rounded-md bg-indigo-500 py-3 px-8 text-base font-semibold text-white outline-none w-full">
+          DELETE POST
+        </button>
+      </div>
   </div>
 </div>
 <script src="/js/editpost.js"></script>
