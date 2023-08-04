@@ -81,7 +81,18 @@ router.get('/add-post/:id', authorize, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   };
-})
+});
+
+router.get("/edit-post/:id", authorize, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    const post = postData.get({ plain: true });
+    res.render("edit-post", { post, firstName: req.session.firstName, userId: req.session.userId });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
