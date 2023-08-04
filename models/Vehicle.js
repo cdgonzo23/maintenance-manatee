@@ -1,7 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Vehicle extends Model {}
+class Vehicle extends Model {
+  makeAndModel() {
+    return `${this.manufacturer} ${this.model}`;
+  }
+}
 
 Vehicle.init(
   {
@@ -15,7 +19,7 @@ Vehicle.init(
         type: DataTypes.STRING,
         allowNull: false
     },
-    modelName: {
+    model: {
       type: DataTypes.STRING,
       allowNull: false,
     },
