@@ -8,7 +8,7 @@ router.post('/add-post', async (req, res) => {
             content: req.body.content,
             cost: req.body.cost,
             dateOfMaintenance: req.body.dateOfMaintenance,
-            vehicleId
+            vehicleId: req.body.vehicleId
         })
         res.status(200).json(newPostData);
     } catch (err) {
