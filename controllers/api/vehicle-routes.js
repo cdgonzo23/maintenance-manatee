@@ -38,7 +38,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
     const deletedVehicle = await Vehicle.destroy({where: {
         id: req.params.id

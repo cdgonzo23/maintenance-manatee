@@ -2,14 +2,13 @@
 const deleteVehicleHandler = async (event) => {
     event.preventDefault();
 
-    // TODO: figure out how we're pulling in id of vehicle being currently edited
     const vehicleId = document.querySelector('#').value.trim();
 
     var deleteConfirm = confirm('Are you sure you want to delete this vehicle?');
     if (deleteConfirm === false) {
         return;
     } else {
-        const response = await fetch(`/api/vehicle/delete/${vehicleId}`, {
+        const response = await fetch(`/api/vehicle/${vehicleId}`, {
             method: 'DELETE',
             body: JSON.stringify({ vehicleId }),
             headers: { 'Content-Type': 'application/json' },

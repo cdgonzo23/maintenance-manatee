@@ -16,18 +16,14 @@ router.post('/add-post', async (req, res) => {
     };
 });
 
-router.put('/edit/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-        const editPostData = await Post.update({
-            title: req.body.title,
-            content: req.body.content,
-            cost: req.body.cost,
-        },
-            {
+        const editPostData = await Post.update(req.body, {
             where: {
-                postId: req.body.postId
-            }
+                id: req.params.id
+            },
         });
+        console.log(`EDITPOSTDATA: ${editPostData}`);
         if (!editPostData) res.status(500).json({message: 'Failed to edit post'});
         res.status(200).json(editPostData);
     } catch (err) {
@@ -35,11 +31,11 @@ router.put('/edit/:id', async (req, res) => {
     };
 });
 
-router.delete('/delete/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
-        const deletedPost = await Post.delete({
+        const deletedPost = await Post.destroy({
             where: {
-                id: req.body.postId
+                id: req.params.id
             }
         });
         res.status(200).json({message: 'Post Deleted'});
