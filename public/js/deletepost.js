@@ -3,7 +3,7 @@ const deletePostHandler = async (event) => {
     event.preventDefault();
 
     // TODO: figure out how were pulling in id of blogpost to delete
-    const postId = document.querySelector('#').value.trim();
+    const postId = document.querySelector('#postId').value.trim();
 
     var deleteConfirm = confirm('Are you sure you want to delete this post?');
     if (deleteConfirm === false) {
@@ -24,5 +24,5 @@ const deletePostHandler = async (event) => {
 };
 
 document
-    .querySelector('#deletepost-button')
-    .addEventListener('submit', deletePostHandler);
+    .querySelector('#delete-post-button')
+    ?.addEventListener('submit', deletePostHandler);
