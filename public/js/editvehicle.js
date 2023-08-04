@@ -8,17 +8,18 @@ const editVehicleFormHandler = async (event) => {
   const color = document.querySelector("#color").value.trim();
   const nickname = document.querySelector("#nickname").value.trim();
   const vehicleId = document.querySelector("#edit-vehicle-form").getAttribute("data-vehicle-id");
-  console.log(manufacturer, model, color, nickname, year, vehicleId)
+  console.log(manufacturer, model, color, nickname, year, vehicleId);
 
   if (manufacturer && model && year && color && nickname && vehicleId) {
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
       method: "PUT",
       body: JSON.stringify({ manufacturer, model, year, color, nickname }),
-      header: {'Content-Type': 'application/json'},
+      headers: { "Content-Type": "application/json" },
     });
 
     if (response) {
-      console.log(response);
+      const updatedVehicle = await response.json();
+      console.log("Updated Vehicle: ", updatedVehicle);
       document.location.replace("/homepage");
     } else {
       alert("failed to edit vehicle");
