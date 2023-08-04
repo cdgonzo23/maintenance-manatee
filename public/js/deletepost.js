@@ -2,8 +2,7 @@
 const deletePostHandler = async (event) => {
     event.preventDefault();
 
-    // TODO: figure out how were pulling in id of blogpost to delete
-    const postId = document.querySelector('#postId').value.trim();
+    const postId = document.querySelector(`#postId`).value;
 
     var deleteConfirm = confirm('Are you sure you want to delete this post?');
     if (deleteConfirm === false) {
@@ -11,7 +10,6 @@ const deletePostHandler = async (event) => {
     } else {
         const response = await fetch(`/api/post/${postId}`, {
             method: 'DELETE',
-            body: JSON.stringify({ postId }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -25,4 +23,4 @@ const deletePostHandler = async (event) => {
 
 document
     .querySelector('#delete-post-button')
-    ?.addEventListener('submit', deletePostHandler);
+    ?.addEventListener('click', deletePostHandler);
