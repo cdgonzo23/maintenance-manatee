@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
 
         if (!correctPassword) res.status(400).json({ message: 'Incorrect email or password.'});
         req.session.save(() => {
-            req.session.username = userData.username;
+            req.session.firstName = userData.firstName;
             req.session.userId = userData.id;
             req.session.loggedIn = true;
             res.status(200).json({ message: 'Successfully logged in!'});
@@ -56,7 +56,6 @@ router.post('/logout', (req, res) => {
     }} catch (err) {
         res.status(500).json(err);
     }
-    
   });
 
 module.exports = router;

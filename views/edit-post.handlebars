@@ -1,0 +1,43 @@
+<h1 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center pt-10">Edit Post</h1>
+<div class="flex items-center justify-center p-12">
+  <div class="mx-auto w-full max-w-[550px]">
+    <form id="editpost-form" method="POST" class="text-center">
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-indigo-500"> Name of Service </label>
+        <input
+          type="text"
+          name="post"
+          value="{{post.title}}"
+          id="edit-post-title"
+          class="w-full rounded-md border border-indigo-500 bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md"
+        />
+      </div>
+      <div class="mb-5">
+        <label class="mb-3 block text-base font-medium text-indigo-500"> Comments: </label>
+        <input
+          type="text"
+          name="edit-post-content"
+          value="{{post.content}}"
+          id="edit-post-content"
+          class="w-full rounded-md border border-indigo-500 bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md"
+        />
+      </div>
+      <div class="mb-5">
+        <label for="subject" class="mb-3 block text-base font-medium text-indigo-500"> Cost </label>
+        <input
+          type="number"
+          value="{{post.cost}}"
+          name="edit-post-cost"
+          id="edit-post-cost"
+          class="w-full rounded-md border border-indigo-500 bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md"
+        />
+      </div>
+      <div>
+        <button type="submit" class="hover:shadow-form rounded-md bg-indigo-500 py-3 px-8 text-base font-semibold text-white outline-none w-full">
+          EDIT POST
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="/js/editpost.js"></script>
