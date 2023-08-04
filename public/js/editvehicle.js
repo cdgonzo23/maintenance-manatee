@@ -1,24 +1,28 @@
 // function to handle editing a vehicle
 const editVehicleFormHandler = async (event) => {
   event.preventDefault();
+
   const manufacturer = document.querySelector("#manufacturer").value.trim();
-  const modelName = document.querySelector("#model").value.trim();
+  const model = document.querySelector("#model").value.trim();
   const year = document.querySelector("#year").value.trim();
   const color = document.querySelector("#color").value.trim();
   const nickname = document.querySelector("#nickname").value.trim();
-  // TODO: figure out how we're pulling in vehicleId for a given vehicle
   const vehicleId = document.querySelector("#edit-vehicle-form").getAttribute("data-vehicle-id");
+  console.log(manufacturer, model, color, nickname, year, vehicleId)
 
-  if (manufacturer && modelName && year && color && nickname && vehicleId) {
+  if (manufacturer && model && year && color && nickname && vehicleId) {
     const response = await fetch(`/api/vehicle/${vehicleId}`, {
       method: "PUT",
-      body: JSON.stringify({ manufacturer, modelName, year, color, nickname }),
+      body: JSON.stringify({ manufacturer, model, year, color, nickname }),
+      header: {'Content-Type': 'application/json'},
     });
-    if (response.ok) {
+
+    if (response) {
+      console.log(response);
       document.location.replace("/homepage");
     } else {
       alert("failed to edit vehicle");
     }
   }
 };
-document.querySelector("#editvehicle-form").addEventListener("submit", editVehicleFormHandler);
+document.querySelector("#update-vehicle-button").addEventListener("click", editVehicleFormHandler);
