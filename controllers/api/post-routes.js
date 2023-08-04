@@ -22,11 +22,10 @@ router.put('/edit/:id', async (req, res) => {
             title: req.body.title,
             content: req.body.content,
             cost: req.body.cost,
-            dateOfMaintenance: req.body.dateOfMaintenance,
         },
             {
             where: {
-                postId: req.params.id
+                postId: req.body.postId
             }
         });
         if (!editPostData) res.status(500).json({message: 'Failed to edit post'});
@@ -36,11 +35,11 @@ router.put('/edit/:id', async (req, res) => {
     };
 });
 
-router.delete('/delete/:id', async (req, res) => {
+router.delete('/delete/', async (req, res) => {
     try {
         const deletedPost = await Post.delete({
             where: {
-                id: req.params.id
+                id: req.body.postId
             }
         });
         res.status(200).json({message: 'Post Deleted'});
