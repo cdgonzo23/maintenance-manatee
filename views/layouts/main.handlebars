@@ -10,31 +10,39 @@
   <body class="bg-indigo-50">
     <header class="bg-white">
       <!-- navbar and menu -->
-      <nav class="shadow">
-        <div class="flex justify-between items-center py-6 px-10 container mx-auto">
+      <section class="shadow">
+        <div class="flex justify-around items-center py-1 container mx-auto">
+          <!-- Logo Section -->
           <div>
-            <a href="/">
-              <h1 class="text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer">
-                Maintenance Manatee
+            <a href="/" class="flex flex-row items-center">
+              <img class="w-14 sm:w-24 align-center sm:p-0" src="../../assets/images/mmLogo.png" alt="Maintenance Manatee Logo" />
+              <h1
+                class="sm:text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer pl-4"
+              >
+                Maintenance<br />
+                Manatee
               </h1>
             </a>
-            {{#if loggedIn}}
-            <div>
-                <h2 class="text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer">
-                  Welcome {{firstName}}
-                </h2>
-            </div>
-            {{/if}}
           </div>
+          {{#if loggedIn}}
+          <h2
+            class="hidden lg:block text-2xl font-bold bg-gradient-to-tr from-indigo-600 to-green-600 bg-clip-text text-transparent hover:cursor-pointer"
+          >
+            Welcome {{firstName}}
+          </h2>
+          {{/if}}
+
+          <!-- nav links -->
           <div>
-            <div class="flex items-center">
+            <button id="hamburger-button" class="text-4xl md:hidden focus:outline-none">&#9776;</button>
+            <nav class="hidden md:flex items-center" aria-label="main">
               <ul class="sm:flex space-x-4 hidden items-center">
                 <li><a href="/" class="text-gray-700 hover:text-indigo-600 text-md">Home</a></li>
                 <li><a href="/add-vehicle" class="text-gray-700 hover:text-indigo-600 text-md">New Vehicle</a></li>
-                <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md">Upcoming Maintenance</a></li>
+                <!-- <li><a href="#" class="text-gray-700 hover:text-indigo-600 text-md">Upcoming Maintenance</a></li> -->
               </ul>
 
-              <div class="md:flex items-center hidden space-x-4 ml-8 lg:ml-12">
+              <div class="md:flex items-center hidden space-x-4 ml-5 lg:ml-12">
                 {{#if loggedIn}}
                 <button id="logout" class="text-text-gray-600 py-2 hover:cursor-pointer hover:text-indigo-600">LOGOUT</button>
                 {{else}}
@@ -47,14 +55,29 @@
                 </a>
                 {{/if}}
               </div>
-            </div>
+            </nav>
           </div>
         </div>
-      </nav>
+      </section>
+      {{!-- small screen navbar --}}
+      <section id="mobile-menu" class="absolute top-0 bg-indigo-600 w-full text-4xl flex-col justify-content-center origin-top hidden">
+        <button class="text-7xl text-white self-end px-6">&times;</button>
+        <nav class="flex flex-col min-h-screen items-center py-8" aria-label="mobile">
+          <a href="/" class="width-full text-white text-center py-6 hover:scale-105 duration-200 transition ease-in-out">Home</a>
+          <a href="/add-vehicle" class="width-full text-white text-center py-6 hover:scale-105 duration-200 transition ease-in-out">New Vehicle</a>
+          {{#if loggedIn}}
+          <button id="logout" class="width-full text-white text-center py-6 hover:scale-105 duration-200 transition ease-in-out">Logout</button>
+          {{else}}
+          <a href="/login" class="width-full text-white text-center py-6 hover:scale-105 duration-200 transition ease-in-out">Login</a>
+          <a href="/signup" class="width-full text-white text-center py-6 hover:scale-105 duration-200 transition ease-in-out">Signup</a>
+          {{/if}}
+        </nav>
+      </section>
     </header>
-      {{{body}}}
+    {{{body}}}
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="/js/main.js"></script>
   </body>
 </html>
