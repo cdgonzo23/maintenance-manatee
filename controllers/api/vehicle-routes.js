@@ -19,6 +19,7 @@ router.post('/add-vehicle', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
+        console.log('MANUFACTURER: ', req.body.manufacturer);
          const vehicle = await Vehicle.update(
        {
         manufacturer: req.body.manufacturer,
