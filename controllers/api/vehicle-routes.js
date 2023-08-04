@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Vehicle } = require('../../models');
-const authorize = require('../../utils/authorize');
 
-router.post('/add-vehicle', authorize, async (req, res) => {
+router.post('/add-vehicle', async (req, res) => {
     try {
         const newVehicleData = await Vehicle.create({
             manufacturer: req.body.manufacturer,
@@ -18,7 +17,7 @@ router.post('/add-vehicle', authorize, async (req, res) => {
     };
 });
 
-router.put('/:id', authorize, async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
          const vehicle = await Vehicle.update(
        {
@@ -39,7 +38,7 @@ router.put('/:id', authorize, async (req, res) => {
     }
 });
 
-router.delete('/delete/:id', authorize, async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
     const deletedVehicle = await Vehicle.destroy({where: {
         id: req.params.id
