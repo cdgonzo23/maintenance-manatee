@@ -4,14 +4,15 @@ const newVehicleFormHandler = async (event) => {
 
     const manufacturer = document.querySelector('#manufacturer').value.trim();
     const model = document.querySelector('#model').value.trim();
+    const typeOfVehicle = document.querySelector('#typeOfVehicle').value.trim();
     const year = document.querySelector('#year').value.trim();
     const color = document.querySelector('#color').value.trim();
     const nickname = document.querySelector('#nickname').value.trim();
 
-    if (manufacturer && model && year && color && nickname) {
+    if (manufacturer && model && typeOfVehicle && year && color) {
         const response = await fetch ('/api/vehicle/add-vehicle', {
             method: 'POST',
-            body: JSON.stringify({ manufacturer, model, year, color, nickname }),
+            body: JSON.stringify({ manufacturer, model, typeOfVehicle, year, color, nickname }),
             headers: { 'Content-Type': 'application/json' },
         });
 
