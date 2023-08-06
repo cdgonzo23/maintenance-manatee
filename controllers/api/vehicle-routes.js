@@ -6,6 +6,7 @@ router.post('/add-vehicle', async (req, res) => {
         const newVehicleData = await Vehicle.create({
             manufacturer: req.body.manufacturer,
             model: req.body.model,
+            typeOfVehicle: req.body.typeOfVehicle,
             year: req.body.year,
             color: req.body.color,
             nickname: req.body.nickname,
@@ -24,6 +25,7 @@ router.put('/:id', async (req, res) => {
        {
         manufacturer: req.body.manufacturer,
         model: req.body.model,
+        typeOfVehicle: req.body.typeOfVehicle,
         year: req.body.year,
         color: req.body.color,
         nickname: req.body.nickname,

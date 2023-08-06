@@ -33,6 +33,9 @@ Vehicle.init(
     nickname: {
         type: DataTypes.STRING,
     },
+    typeOfVehicle: {
+        type: DataTypes.STRING,
+    },
     userId: {
         type: DataTypes.INTEGER,
         references: {

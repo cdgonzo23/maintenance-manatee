@@ -5,7 +5,7 @@
 
     <form id="edit-vehicle-form" method="POST" class="text-center px-5" data-vehicle-id="{{vehicle.id}}">
       <div class="mb-5">
-        <label for="name" class="mb-3 block text-base font-medium text-indigo-500"> Make </label>
+        <label for="make" class="mb-3 block text-base font-medium text-indigo-500"> Make </label>
         <input
           type="text"
           name="make"
@@ -15,7 +15,7 @@
         />
       </div>
       <div class="mb-5">
-        <label for="email" class="mb-3 block text-base font-medium text-indigo-500"> Model </label>
+        <label for="model" class="mb-3 block text-base font-medium text-indigo-500"> Model </label>
         <input
           type="text"
           name="model"
@@ -23,6 +23,17 @@
           class="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md text-center"
           value="{{vehicle.model}}"
         />
+      </div>
+      <div class="mb-5">
+        <label for="typeOfVehicle" class="mb-3 block text-base font-medium text-indigo-500"> Type of Vehicle </label>
+        <select name="typeOfVehicle" id="typeOfVehicle" class="w-full rounded-md border border-black bg-white py-3 px-6 text-base font-medium text-text-indigo-500 outline-none focus:border-indigo-500 focus:shadow-md text-center"/>
+          <option value="{{vehicle.typeOfVehicle}}">{{vehicle.typeOfVehicle}}</option>
+          <option value="suv">SUV</option>
+          <option value="car">Sedan</option>
+          <option value="pick-up-truck">Pick-Up Truck</option>
+          <option value="motorcycle">Motorcycle</option>
+          <option value="van">Van</option>
+        </select>
       </div>
       <div class="mb-5">
         <label for="subject" class="mb-3 block text-base font-medium text-indigo-500"> Year </label>
