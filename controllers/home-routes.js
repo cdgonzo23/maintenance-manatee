@@ -40,7 +40,7 @@ router.get('/vehicle/:id', authorize, async (req, res) => {
     const postData = await vehicle.getPosts();
     const posts = postData.map((vehiclePost) => vehiclePost.get({ plain: true }))
     if (!posts) res.status(404).json({message: 'No vehicle found.'});
-    res.render('maintenance-posts', { title: vehicle.makeAndModel(), posts, loggedIn: req.session.loggedIn, userId: req.session.userId, firstName: req.session.firstName, vehicleId });
+    res.render('maintenance-posts', { title: vehicle.makeAndModel(), nickname: vehicle.nickname, posts, loggedIn: req.session.loggedIn, userId: req.session.userId, firstName: req.session.firstName, vehicleId });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -72,11 +72,15 @@ router.get("/edit-vehicle/:id", authorize, async (req, res) => {
 
 router.get('/add-post/:id', authorize, async (req, res) => {
   try {
+    const vehicleData = await Vehicle.findByPk(req.params.id);
+    const vehicle = vehicleData.get({ plain: true });
     return res.render('add-post', {
-      vehicleId: req.params.id,
+      vehicle,
+      vehicleId: vehicle.id,
       firstName: req.session.firstName, 
       userId: req.session.userId,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      title: vehicleData.makeAndModel()
     });
   } catch (err) {
     res.status(500).json(err);
@@ -88,8 +92,9 @@ router.get("/edit-post/:id", authorize, async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [Vehicle]
     });
+    const vehicle = postData.vehicle;
     const post = postData.get({ plain: true });
-    res.render("edit-post", { post, firstName: req.session.firstName, userId: req.session.userId, loggedIn: req.session.loggedIn });
+    res.render("edit-post", { post, firstName: req.session.firstName, userId: req.session.userId, loggedIn: req.session.loggedIn, title: vehicle.makeAndModel() });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

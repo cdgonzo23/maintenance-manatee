@@ -1,4 +1,8 @@
+{{#if post.vehicle.nickname}}
 <h1 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center pt-10">Edit Post for {{post.vehicle.nickname}}</h1>
+{{else}}
+<h1 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center pt-10">Edit Post for {{title}}</h1>
+{{/if}}
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
     <form id="editpost-form" method="POST" class="text-center">
