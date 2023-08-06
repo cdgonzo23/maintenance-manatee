@@ -6,29 +6,23 @@
       <a href="/edit-vehicle/{{vehicleId}}"> Edit vehicle details<a>
     </div>
 
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center px-5">
 
     {{#each posts}}
-      <a href="/edit-post/{{id}}" class="block p-6 rounded-lg shadow-lg bg-white max-w-md ml-6 mb-10 hover:scale-105 ease-in-out duration-500 text-md">
+      <a href="/edit-post/{{id}}" class="block w-full p-6 rounded-lg shadow-lg bg-white max-w-md mb-10 hover:scale-105 ease-in-out duration-500 text-md">
         <div class="flex justify-between mb-4">
           <p class="font-medium text-indigo-600">{{title}}</p>
-        </div>
-        <div>
           <p class="font-medium text-indigo-600 hover:text-indigo-700 focus:text-indigo-800 duration-300 transition ease-in-out text-sm">
             {{format_date dateOfMaintenance}}
           </p>
         </div>
-        <div>
         <p class="text-gray-700 mb-6">
           {{content}}
         </p>
-        </div>
-        <div>
         <p class="font-medium text-indigo-600 hover:text-indigo-700 focus:text-indigo-800 duration-300 transition ease-in-out text-sm">Cost: ${{cost}}</p>
-        </div>
       </a>
-    </div>
       {{/each}}
+    </div>
     <a href="/add-post/{{vehicleId}}">
       <button class="flex content-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">+ Add a Post</button>
     </a>
