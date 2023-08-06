@@ -3,7 +3,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 m-10 mb-10">
   <!-- START Card component -->
   {{#each user.vehicles}}
-    <a href="/vehicle/{{id}}" class="container grid grid-cols-1 lg:grid-cols-2 bg-white shadow-2xl rounded-2xl p-6 hover:scale-105 ease-in-out duration-500">
+    <div class="container grid grid-cols-1 lg:grid-cols-2 bg-white shadow-2xl rounded-2xl p-6 duration-500">
       <div>
         <h4 class="text-3xl font-bold text-indigo-500">{{nickname}}</h4>
         <ul class="py-5 font-medium text-lg">
@@ -16,7 +16,13 @@
       <figure class="flex">
         <img src="assets/mini-cooper.jpg" alt="" />
       </figure>
-    </a>
+        <a href="/edit-vehicle/{{id}}" class=" rounded-md bg-gradient-to-tr from-indigo-600 to-green-600 hover:to-green-800 transform transition duration-300 py-3 px-8 text-base font-semibold text-white outline-none w-5/6 text-center items-center">
+              UPDATE/DELETE
+        </a>
+        <a href="/vehicle/{{id}}" class="rounded-md bg-indigo-600 hover:bg-indigo-800 transform transition duration-200 py-3 px-8 text-base font-semibold text-white outline-none w-5/6 text-center">
+              SEE POSTS
+        </a>
+      </div>
   {{/each}}
   <!-- END Card component -->
 </div>
