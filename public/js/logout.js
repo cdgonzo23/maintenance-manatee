@@ -1,3 +1,6 @@
+const logoutLink = document.querySelector('#logout');
+const hamburgerLogoutLink = document.querySelector('#logout-hamburger');
+
 // function to log user out if already logged in
 const logout = async () => {
     const response = await fetch('/api/user/logout', {
@@ -11,5 +14,10 @@ const logout = async () => {
         alert('Failed to log out.');
     }
 };
+if (logoutLink) {
+    logoutLink.addEventListener('click', logout);
+};
 
-document.querySelector('#logout').addEventListener('click', logout);
+if (hamburgerLogoutLink) {
+    hamburgerLogoutLink.addEventListener('click', logout);
+}

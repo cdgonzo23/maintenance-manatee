@@ -2,8 +2,8 @@
 const deleteVehicleHandler = async (event) => {
     event.preventDefault();
 
-    const vehicleId = document.querySelector('#').value.trim();
-
+    const vehicleId = document.querySelector('#delete-vehicle-btn').value.trim();
+    
     var deleteConfirm = confirm('Are you sure you want to delete this vehicle?');
     if (deleteConfirm === false) {
         return;
@@ -23,5 +23,5 @@ const deleteVehicleHandler = async (event) => {
 };
 
 document
-    .querySelector('#deletevehicle-form')
-    .addEventListener('submit', deleteVehicleHandler);
+    .querySelector('#delete-vehicle-btn')
+    .addEventListener('click', deleteVehicleHandler);
