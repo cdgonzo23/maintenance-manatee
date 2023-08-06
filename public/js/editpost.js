@@ -6,6 +6,7 @@ const editPostFormHandler = async (event) => {
     const content = document.querySelector(`#edit-post-content`).value.trim();
     const cost = document.querySelector(`#edit-post-cost`).value.trim();
     const postId = document.querySelector(`#postId`).value;
+    const vehicleId = document.querySelector(`#vehicleId`).value.trim();
 
     if (title && content && cost && postId) {
         const response = await fetch(`/api/post/${postId}`, {
@@ -14,7 +15,7 @@ const editPostFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(`/vehicle/${vehicleId}`);
         } else {
             alert('Failed to edit post.');
         }

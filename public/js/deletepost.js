@@ -3,6 +3,7 @@ const deletePostHandler = async (event) => {
     event.preventDefault();
 
     const postId = document.querySelector(`#postId`).value;
+    const vehicleId = document.querySelector(`#vehicleId`).value.trim();
 
     var deleteConfirm = confirm('Are you sure you want to delete this post?');
     if (deleteConfirm === false) {
@@ -14,7 +15,7 @@ const deletePostHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(`/vehicle/${vehicleId}`);
         } else {
             alert('Failed to delete post.');
         }

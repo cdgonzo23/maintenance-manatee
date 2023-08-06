@@ -85,7 +85,9 @@ router.get('/add-post/:id', authorize, async (req, res) => {
 
 router.get("/edit-post/:id", authorize, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
+    const postData = await Post.findByPk(req.params.id, {
+      include: [Vehicle]
+    });
     const post = postData.get({ plain: true });
     res.render("edit-post", { post, firstName: req.session.firstName, userId: req.session.userId, loggedIn: req.session.loggedIn });
   } catch (err) {
