@@ -1,8 +1,9 @@
-<h1 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center pt-10">Edit Post</h1>
+<h1 class="text-2xl text-indigo-600 font-bold mb-6 ml-3 text-center pt-10">Edit Post for {{post.vehicle.nickname}}</h1>
 <div class="flex items-center justify-center p-12">
   <div class="mx-auto w-full max-w-[550px]">
     <form id="editpost-form" method="POST" class="text-center">
       <div class="mb-5">
+        <input id="vehicleId" value="{{post.vehicle.id}}" style="display: none;">
         <label for="name" class="mb-3 block text-base font-medium text-indigo-500"> Name of Service </label>
         <input
           type="text"

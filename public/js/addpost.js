@@ -23,7 +23,7 @@ const newPostFormHandler = async (event) => {
         console.log(response);
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(`/vehicle/${vehicleId}`);
         } else {
             alert('Failed to create new vehicle');
         }
