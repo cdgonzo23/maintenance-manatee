@@ -38,7 +38,8 @@ router.get('/vehicle/:id', authorize, async (req, res) => {
     const vehicleId = req.params.id
     const vehicle = await Vehicle.findByPk(req.params.id);
     const postData = await vehicle.getPosts();
-    const posts = postData.map((vehiclePost) => vehiclePost.get({ plain: true }))
+    const unsortedPosts = postData.map((vehiclePost) => vehiclePost.get({ plain: true }))
+    const posts = unsortedPosts.reverse();
     if (!posts) res.status(404).json({message: 'No vehicle found.'});
     res.render('maintenance-posts', { title: vehicle.makeAndModel(), nickname: vehicle.nickname, posts, loggedIn: req.session.loggedIn, userId: req.session.userId, firstName: req.session.firstName, vehicleId });
   } catch (err) {
