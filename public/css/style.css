@@ -812,6 +812,18 @@ video {
 .pt-10 {
   padding-top: 2.5rem;
 }
+.pb-12 {
+  padding-bottom: 3rem;
+}
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pb-20 {
+  padding-bottom: 5rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
 .text-center {
   text-align: center;
 }
