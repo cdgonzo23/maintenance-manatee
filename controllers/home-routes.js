@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Vehicle, Post } = require("../models");
 const authorize = require("../utils/authorize");
-const helpers = require("../utils/helpers");
+const { sortPostDates } = require("../utils/helpers");
 
 router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
@@ -40,7 +40,7 @@ router.get("/vehicle/:id", authorize, async (req, res) => {
     const postData = await vehicle.getPosts();
     const posts = postData.map((vehiclePost) => vehiclePost.get({ plain: true }));
     // sorting post data by newest date
-    helpers.sortPostDates(posts);
+    sortPostDates(posts);
     if (!posts) res.status(404).json({ message: "No vehicle found." });
     res.render("maintenance-posts", {
       title: vehicle.makeAndModel(),
