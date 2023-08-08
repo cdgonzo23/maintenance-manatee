@@ -521,6 +521,12 @@ video {
 .absolute {
   position: absolute;
 }
+.relative {
+  position: relative;
+}
+.bottom-0 {
+  bottom: 0px;
+}
 .top-0 {
   top: 0px;
 }
@@ -593,6 +599,9 @@ video {
 }
 .h-96 {
   height: 24rem;
+}
+.h-screen {
+  height: 100vh;
 }
 .min-h-full {
   min-height: 100%;
@@ -1010,10 +1019,6 @@ video {
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
-
-.hover\:to-green-800:hover {
-  --tw-gradient-to: #166534 var(--tw-gradient-to-position);
 }
 
 .hover\:text-indigo-600:hover {
