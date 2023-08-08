@@ -7,7 +7,6 @@ const newPostFormHandler = async (event) => {
     const content = document.querySelector(`#new-post-content`).value.trim();
     const cost = document.querySelector(`#new-post-cost`).value.trim();
     const dateOfMaintenance = document.querySelector(`#date-of-maintenance`).value.trim();
-    // const vehicleId = document.querySelector(`#addpost-form`).getAttribute('data-vehicleId');
     const vehicleId = document.querySelector('#vehicleId').value;
     console.log(vehicleId);
     console.log(content);
@@ -25,7 +24,7 @@ const newPostFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace(`/vehicle/${vehicleId}`);
         } else {
-            alert('Failed to create new vehicle');
+            alert('Failed to create new post');
         }
     }
 };
