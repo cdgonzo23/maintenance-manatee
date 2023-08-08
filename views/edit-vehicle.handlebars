@@ -3,7 +3,7 @@
   <div class="mx-auto w-full max-w-[550px]">
     <!-- look below for vehicle id attribute -->
 
-    <form id="edit-vehicle-form" method="POST" class="text-center px-5" data-vehicle-id="{{vehicle.id}}">
+    <form id="edit-vehicle-form" method="POST" class="text-center" data-vehicle-id="{{vehicle.id}}">
       <div class="mb-5">
         <label for="make" class="mb-3 block text-base font-medium text-indigo-500"> Make </label>
         <input
@@ -69,14 +69,14 @@
         <button
         id="update-vehicle-button"
         type="submit"
-          class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-base font-semibold text-white outline-none w-full text-center"
+          class="hover:shadow-form rounded-md bg-indigo-600 transition duration-150 hover:bg-indigo-500 py-3 px-8 text-base font-semibold text-white outline-none w-full text-center"
         >
           UPDATE VEHICLE
         </button>
       </div>
       
     </form>
-    <button id="delete-vehicle-btn" value={{vehicle.id}} class="hover:shadow-form rounded-md bg-red-500 hover:bg-red-600 py-3 px-8 text-base font-semibold text-white outline-none w-full text-center">
+    <button id="delete-vehicle-btn" value={{vehicle.id}} class="hover:shadow-form transition duration-150 rounded-md bg-red-600 hover:bg-red-500 py-3 px-8 text-base font-semibold text-white outline-none w-full text-center">
         DELETE VEHICLE
     </button>
   </div>
