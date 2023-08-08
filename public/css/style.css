@@ -1113,10 +1113,6 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .sm\:items-center {
-    align-items: center;
-  }
-
   .sm\:gap-4 {
     gap: 1rem;
   }
