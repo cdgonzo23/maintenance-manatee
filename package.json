@@ -4,10 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "prestart": "node config/init",
     "start": "node server",
-    "preseed": "node config/init seed",
-    "seed": "node seeds/index",
     "prewatch": "node config/init",
     "watch": "nodemon server",
     "dev": "concurrently \"npm run watch\" \"postcss main.css -o public/css/style.css --watch\""
