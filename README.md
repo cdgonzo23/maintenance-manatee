@@ -19,7 +19,7 @@ We wanted to make a simple, easy to use full stack web app that could take some 
 
 ## Installation
 
-This app is deployed on Heroku: [NOT YET IMPLEMENTED]()
+This app is deployed on Heroku: [Click here](https://maintenance-manatee-20230807-e071f072b462.herokuapp.com/)
 
 If you want to deploy this app locally you'll need to do the following:
 
@@ -51,13 +51,13 @@ The user can create an account by clicking the signup button located in the head
 
 Once logged in the user can create a profile for their vehicle by clicking the 'New Vehicle' button. They will then be prompted to enter information including make, model, type of vehicle,year, color, and nickname.
 
-![test](./assets/images/READMEVehicleDemonstration.png)
+![Vehicle Card Demonstration](./assets/images/READMEVehicleDemonstration.png)
 
-After doing so the vehicle profile will be created and will show a card resembling the above example
+After doing so the vehicle profile will be created and will show a card resembling the above example.
 
 ---
 
-![test](./assets/images/READMEPostDemonstration.png)
+![Post Demonstration](./assets/images/READMEPostDemonstration.png)
 
 The user can then create a post for that specific vehicle by navigating to the Maintenance Log for a given vehicle and clicking the 'Add a Post' button.
 
@@ -65,7 +65,7 @@ The user can then create a post for that specific vehicle by navigating to the M
 
 A vehicle or post can be updated or deleted by clicking the 'Update' button on the vehicles page, or by clicking the post itself in the Maintenance Log.
 
-![test](./assets/images/READMEUpdateDeleteVehicle.png)
+![Update/Delete Vehicle Demonstration](./assets/images/READMEUpdateDeleteVehicle.png)
 
 ---
 
