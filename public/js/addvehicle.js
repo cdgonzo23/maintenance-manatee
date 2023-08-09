@@ -19,11 +19,21 @@ const newVehicleFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert('Failed to create new vehicle');
+            document.querySelector('#popup-modal').setAttribute('style', 'display:flex;');
+            document.location.replace('#popup-modal');
         }
+    } else {
+        document.querySelector('#popup-modal').setAttribute('style', 'display:flex;');
+        document.location.replace('#popup-modal');
     }
 };
+
+const hideModal = () => {
+    document.querySelector('#popup-modal').setAttribute('style', 'display:none;');
+}
 
 document
     .querySelector('#addvehicle-form')
     .addEventListener('submit', newVehicleFormHandler);
+
+document.querySelector('#okay').addEventListener('click', hideModal);
