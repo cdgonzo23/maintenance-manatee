@@ -1,27 +1,36 @@
 // function to delete vehicle by id
+const displayModal = (event) => {
+    const deleteModal = document.getElementById("popup-modal");
+    deleteModal.setAttribute("style", "display:flex;");
+    document.location.replace('#popup-modal');
+}; 
+
+const hideModal = () => {
+    const deleteModal = document.getElementById("popup-modal");
+    deleteModal.setAttribute("style", "display:none;");
+}; 
+
 const deleteVehicleHandler = async (event) => {
     event.preventDefault();
 
     const vehicleId = document.querySelector('#delete-vehicle-btn').value.trim();
-    
-    var deleteConfirm = confirm('Are you sure you want to delete this vehicle?');
-    if (deleteConfirm === false) {
-        return;
-    } else {
-        const response = await fetch(`/api/vehicle/${vehicleId}`, {
-            method: 'DELETE',
-            body: JSON.stringify({ vehicleId }),
-            headers: { 'Content-Type': 'application/json' },
-        });
 
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('failed to delete vehicle.');
-        }
+    const response = await fetch(`/api/vehicle/${vehicleId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ vehicleId }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert('failed to delete vehicle.');
     }
 };
 
 document
     .querySelector('#delete-vehicle-btn')
-    .addEventListener('click', deleteVehicleHandler);
+    .addEventListener('click', displayModal);
+
+    document.getElementById("confirm").addEventListener("click", deleteVehicleHandler);
+    document.getElementById("cancel").addEventListener("click", hideModal);

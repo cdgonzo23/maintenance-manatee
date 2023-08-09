@@ -17,11 +17,17 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert('Failed to sign up');
+            document.querySelector("#popup-modal").setAttribute("style", "display:flex;")
         }
     }
 };
 
+const hideModal = (event) => {
+    document.querySelector("#popup-modal").setAttribute("style", "display:none;")
+}
+
 document
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
+    
+document.querySelector('#okay').addEventListener("click", hideModal);

@@ -24,11 +24,20 @@ const newPostFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace(`/vehicle/${vehicleId}`);
         } else {
-            alert('Failed to create new post');
+            document.querySelector('#popup-modal').setAttribute('style', 'display:flex;');
         }
+    } else {
+        document.querySelector('#popup-modal').setAttribute('style', 'display:flex;');
+        document.location.replace('#popup-modal');
     }
 };
+
+const hideModal = () => {
+    document.querySelector('#popup-modal').setAttribute('style', 'display:none;');
+}
 
 document
     .querySelector('#addpost-form')
     ?.addEventListener('submit', newPostFormHandler);
+
+document.querySelector('#okay').addEventListener('click', hideModal);
