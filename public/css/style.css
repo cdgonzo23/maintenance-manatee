@@ -518,36 +518,17 @@ video {
     max-width: 1536px;
   }
 }
-.fixed {
-  position: fixed;
-}
 .absolute {
   position: absolute;
 }
 .relative {
   position: relative;
 }
-.inset-x-0 {
-  left: 0px;
-  right: 0px;
-}
 .bottom-0 {
   bottom: 0px;
 }
-.left-0 {
-  left: 0px;
-}
-.right-0 {
-  right: 0px;
-}
 .top-0 {
   top: 0px;
-}
-.left-2\/4 {
-  left: 50%;
-}
-.top-2\/4 {
-  top: 50%;
 }
 .z-50 {
   z-index: 50;
@@ -712,9 +693,6 @@ video {
 }
 .self-end {
   align-self: flex-end;
-}
-.self-center {
-  align-self: center;
 }
 .overflow-y-auto {
   overflow-y: auto;
